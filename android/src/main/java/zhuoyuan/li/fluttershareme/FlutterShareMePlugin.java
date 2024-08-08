@@ -19,7 +19,6 @@ import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.MessageDialog;
 import com.facebook.share.widget.ShareDialog;
-import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -170,18 +169,7 @@ public class FlutterShareMePlugin implements MethodCallHandler, FlutterPlugin, A
      */
 
     private void shareToTwitter(String url, String msg, Result result) {
-        try {
-            TweetComposer.Builder builder = new TweetComposer.Builder(activity)
-                    .text(msg);
-            if (url != null && url.length() > 0) {
-                builder.url(new URL(url));
-            }
 
-            builder.show();
-            result.success("success");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
